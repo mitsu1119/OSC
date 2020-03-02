@@ -72,7 +72,12 @@ signed main() {
 
 	Modint<MOD> S(s), A(a), B(b);
 
-	for(u64 i = 0; i < n; i++) S = S * (A + 1) + B;
+	if(a != 0) {
+		Modint<MOD> An = (A + Modint<MOD>(1)).pow(n);
+		S = An * S + (An - Modint<MOD>(1)) * B / A;
+	} else {
+		S = S + Modint<MOD>(n) * B;
+	}
 	cout << S.val() << endl;
 
 	return 0;
