@@ -18,11 +18,12 @@ signed main() {
 	i64 a, b, c, d;
 	cin >> a >> b >> c >> d;
 
+	while(true) {}
 	i64 res = 0;
 	for(i64 x = 0; x <= (d / a); x++) {
 		for(i64 y = 0; y <= (d / b); y++) {
-			if(d >= a * x + b * y && (d - a * x - b * y) % c == 0) {
-				res++;
+			for(i64 z = 0; z <= (d / c); z++) {
+				if(a * x + b * y + c * z == d) res++;
 			}
 		}
 	}
