@@ -22,12 +22,24 @@ signed main() {
 	sort(ST.begin(), ST.end());
 	
 	i64 res = 0;
-	i64 buf = -1;
+	i64 buf[] = {-1, -1};
+	i64 idx = -1;
 	for(i64 i = 0; i < N; i++) {
-		if(ST[i].first >= buf) {
+		if(ST[i].first >= buf[0]) idx = 0;
+		if(ST[i].first >= buf[1]) {
+			if(idx == 0) {
+				if(buf[1] > buf[0]) idx = 1;
+			} else {
+				idx = 1;
+			}
+		}		
+
+		if(idx != -1) {
 			res++;
-			buf = ST[i].second;
+			buf[idx] = ST[i].second;
 		}
+
+		idx = -1;
 	}
 
 	cout << res << endl;
