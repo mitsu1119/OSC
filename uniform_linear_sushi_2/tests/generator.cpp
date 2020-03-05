@@ -15,7 +15,7 @@ const i64 MAX_T = 1e9;
 int main(int argc, char *argv[]) {
 	registerGen(argc, argv, 1);
 	for(i64 t = 0; t < 20; t++) {
-		ofstream of(format("04_random_%06d.in", t + 1).c_str());
+		ofstream of(format("06_random_%06d.in", t + 1).c_str());
 		i64 N = rnd.next(MIN_N, MAX_N);
 		of << N << endl;
 		for(i64 i = 0; i < N; i++) of << rnd.next(MIN_S, MAX_S) << " " << rnd.next(MIN_T, MAX_T) << endl;
