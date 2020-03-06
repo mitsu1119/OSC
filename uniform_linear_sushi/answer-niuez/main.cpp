@@ -26,16 +26,13 @@ int main() {
 
   sort(all(vec));
 
-  priority_queue<i64, vector<i64>, greater<i64>> que;
-  i64 NUM = 1;
+
+  vector<i64> ne(1, 0);
   i64 ans = 0;
   rep(i,0,N) {
-    while(!que.empty() && que.top() <= vec[i].second) {
-      que.pop();
-    }
-    if(que.size() < NUM) {
+    if(ne[0] <= vec[i].second) {
+      ne[0] = vec[i].first;
       ans++;
-      que.push(vec[i].first);
     }
   }
   cout << ans << endl;
